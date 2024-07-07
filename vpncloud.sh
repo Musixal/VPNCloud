@@ -271,8 +271,8 @@ EOF
 	    echo "peers: []" >> $CONFIG
 	else
 		echo "peers:" >> $CONFIG
+  		PEERS=$(echo "$PEERS" | tr -d '[:space:]')
 		IFS=',' read -ra PEER_LIST <<< "$PEERS"
-
 		for peer in "${PEER_LIST[@]}"; do
 			echo "  - \"$peer\"" >> $CONFIG
 		done
