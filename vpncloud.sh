@@ -227,7 +227,7 @@ ALG="  algorithms:
     - CHACHA20"
 	        ;;
 	    n|N|no|NO)
-	        colorize yellow "Encryption not enabled." 
+	        colorize yellow "Encryption disabled." 
 ALG="  algorithms:
     - PLAIN"
 	        ;;
@@ -252,7 +252,7 @@ advertise-addresses: []
 ifup: ~
 ifdown: ~
 crypto:
-  password: $PASSWORD
+  password: "$PASSWORD"
   private-key: ~
   public-key: ~
   trusted-keys: []
@@ -274,7 +274,7 @@ EOF
 		IFS=',' read -ra PEER_LIST <<< "$PEERS"
 
 		for peer in "${PEER_LIST[@]}"; do
-			echo "  - $peer" >> $CONFIG
+			echo '  - "$peer"' >> $CONFIG
 		done
 	fi
 
@@ -432,4 +432,3 @@ do
     display_menu
     read_option
 done
-
