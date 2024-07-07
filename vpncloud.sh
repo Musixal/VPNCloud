@@ -274,7 +274,7 @@ EOF
 		IFS=',' read -ra PEER_LIST <<< "$PEERS"
 
 		for peer in "${PEER_LIST[@]}"; do
-			echo ""  - \"$peer\"" >> $CONFIG
+			echo "  - \"$peer\"" >> $CONFIG
 		done
 	fi
 
